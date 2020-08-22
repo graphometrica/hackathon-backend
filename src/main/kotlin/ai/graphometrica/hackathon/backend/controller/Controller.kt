@@ -12,9 +12,9 @@ class BackendController(
     val companyService: CompanyService
 ) {
 
-    @GetMapping("company/inn/{inn}")
-    fun getCompanyByInn(@PathVariable("inn") inn: String): CompanyDto {
-        return mapToCompanyDto(companyService.getCompanyByInn(inn))
+    @GetMapping("/getAll")
+    fun getAll(): List<CompanyDto> {
+        return companyService.getAll().map { mapToCompanyDto(it) }
     }
 
 }
