@@ -1,0 +1,8 @@
+
+spring:
+  datasource:
+    username: hackathon
+    password: hackathon
+    url: jdbc:postgresql://127.0.0.1:5432/hackathon?currentShema=hackathon
+server:
+  address: 127.0.0.1
