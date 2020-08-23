@@ -18,7 +18,9 @@ data class CompanyDto(
     var ogrn: String? = null,
     var inn: Long? = null,
     var preds: Double? = null,
-    var target: Long? = null
+    var target: Long? = null,
+    var proceed: String? = null,
+    var soc_networks: String? = null
 )
 
 fun mapToCompanyDto(company: Company?): CompanyDto {
@@ -40,6 +42,8 @@ fun mapToCompanyDto(company: Company?): CompanyDto {
      ogrn = company.ogrn,
      inn = company.inn,
      preds = company.preds,
-     target = company.target
+     target = company.target,
+     proceed = company.proceed,
+     soc_networks = company.soc_networks
     )
 }

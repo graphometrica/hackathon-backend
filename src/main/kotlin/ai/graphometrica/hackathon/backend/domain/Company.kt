@@ -27,5 +27,7 @@ data class Company(
     var ogrn: String? = null,
     var inn: Long? = null,
     var preds: Double? = null,
-    var target: Long? = null
+    var target: Long? = null,
+    var proceed: String? = null,
+    var soc_networks: String? = null
 )

@@ -11,14 +11,9 @@ class CompanyService(
 ) {
 
     val sql = """select u.name,u.address, u.okved_code,u.okved_name,u.city,u.location,
-u.website,
-u.rubric,
-u.sub_rubric,
-u.create_year,
-u.employee_number,
-u.ogrn,
-u.inn,
-a.preds, a.target from analytics a join unofficial u on a.inn = u.inn order by location"""
+u.website, u.rubric, u.sub_rubric, u.create_year, u.employee_number, u.ogrn, u.inn,
+a.preds, a.target, u.proceed, u.soc_networks
+from analytics a join unofficial u on a.inn = u.inn order by location"""
 
     fun getAll(): List<Company> {
         return jdbcTemplate.query(sql, RowMapper { rs, rowNum ->
@@ -37,7 +32,9 @@ a.preds, a.target from analytics a join unofficial u on a.inn = u.inn order by l
                 ogrn = rs.getString(12),
                 inn = rs.getLong(13),
                 preds = rs.getDouble(14),
-                target = rs.getLong(15)
+                target = rs.getLong(15),
+                proceed = rs.getString(16),
+                soc_networks = rs.getString(17)
             )
         })
 
